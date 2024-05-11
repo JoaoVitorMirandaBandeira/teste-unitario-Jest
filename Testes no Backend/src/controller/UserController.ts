@@ -16,4 +16,24 @@ export class UserController {
         }
     }
 
+    async all(req: Request, res: Response) {
+        try{
+            const id = req.headers.authorization as string;
+            const user = this.userBusiness.getAllUsers(id);
+            res.status(200).send(user);
+        }catch (error: any) {
+            throw new Error(error.message);
+        }
+    }
+
+    async profile(req: Request, res: Response) {
+        try{
+            const id = req.headers.authorization as string;
+            const user = this.userBusiness.getProfile(id);
+            res.status(200).send(user);
+        }catch (error: any) {
+            throw new Error(error.message);
+        }
+    }
+
 }

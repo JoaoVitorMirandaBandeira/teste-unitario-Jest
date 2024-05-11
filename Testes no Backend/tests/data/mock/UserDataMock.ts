@@ -12,8 +12,32 @@ export class UserDatabaseMock {
                 email: 'rubeus@rubeus',
                 role: USER_ROLES.ADMIN
             }
-        } else {
+        } else if (id === '3') {
+            return {
+                id: '3',
+                name: 'Cerberus',
+                email: 'cerberus@cerberus',
+                role: USER_ROLES.NORMAL
+            }
+        }else {
             undefined
         }
+    }
+
+    public async getAllUsers(): Promise<User[]> {
+        return [
+            {
+                id: '1',
+                name: 'Rubeus',
+                email: 'rubeus@rubeus',
+                role: USER_ROLES.ADMIN
+            },
+            {
+                id: '2',
+                name: 'Cerberus',
+                email: 'cerberus@cerberus',
+                role: USER_ROLES.NORMAL
+            }
+        ]
     }
 }

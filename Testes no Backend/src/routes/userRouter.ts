@@ -11,4 +11,6 @@ const userBusiness = new UserBusiness(
 );
 const userController = new UserController(userBusiness);
 
-userRouter.post("/users/profile/:id", userController.index);
+userRouter.get("/users/profile/:id", userController.index);
+userRouter.get("/users/all", userController.all);
+userRouter.get("/users/profile", userController.profile);

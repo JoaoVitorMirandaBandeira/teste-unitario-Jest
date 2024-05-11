@@ -13,4 +13,13 @@ export class UserData {
 
     }
 
+    public async getAllUsers() {
+        try {
+            const users = await connection('user');
+            return users
+        } catch (error: any) {
+            throw new Error(error.message)
+        }
+    }
+
 }
